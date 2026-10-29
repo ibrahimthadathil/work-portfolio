@@ -1,0 +1,55 @@
+.section { border-top: 1px solid var(--border); }
+
+/* Section label — type-h2-13: 13px 500 lh:1.60 ls:0.78px */
+.sectionTitle {
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-78);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.list { display: flex; flex-direction: column; }
+
+.item { border-bottom: 1px solid var(--border); }
+.item:first-child { border-top: 1px solid var(--border); }
+
+/* Question — type-subheading-15: 15px 600 lh:1.60 ls:-0.15px */
+.question {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0;
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-15);
+  font-weight: 600;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-15);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  background: none; border: none;
+  gap: 16px;
+  transition: color var(--transition);
+}
+.question:hover { color: var(--text-secondary); }
+
+.icon {
+  font-size: 20px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  line-height: 1;
+  display: inline-block;
+}
+
+.answer { overflow: hidden; }
+
+/* Answer — type-body-15: 15px 400 lh:1.70 */
+.answer p {
+  font-size: var(--text-15);
+  font-weight: 400;
+  line-height: 1.70;
+  color: var(--text-secondary);
+  padding-bottom: 22px;
+}

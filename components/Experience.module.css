@@ -1,0 +1,72 @@
+.section { border-top: 1px solid var(--border); }
+
+.header { margin-bottom: 28px; }
+
+/* Section label — type-h2-13: 13px 500 lh:1.60 ls:0.78px */
+.sectionTitle {
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-78);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.list { display: flex; flex-direction: column; }
+
+.item {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  transition: opacity var(--transition);
+}
+.item:first-child { border-top: 1px solid var(--border); }
+.item:hover { opacity: .8; }
+
+.left  { display: flex; flex-direction: column; gap: 3px; }
+.right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
+/* Company — type-subheading-15: 15px 600 lh:1.60 ls:-0.15px */
+.company {
+  font-size: var(--text-15);
+  font-weight: 600;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-15);
+  color: var(--text-primary);
+}
+
+/* Role — type-body-14: 14px 400 lh:1.81 */
+.role {
+  font-size: var(--text-14);
+  font-weight: 400;
+  line-height: 1.81;
+  color: var(--text-secondary);
+}
+
+/* Type badge — type-small-11-500: 11px 500 lh:1.60 ls:0.77px */
+.type {
+  font-size: var(--text-11);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-77);
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* Period — type-caption-13-400: 13px 400 lh:1.60 */
+.period {
+  font-size: var(--text-13);
+  font-weight: 400;
+  line-height: 1.60;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .right { align-items: flex-start; }
+}

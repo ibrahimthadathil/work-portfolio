@@ -1,0 +1,77 @@
+.section { border-top: 1px solid var(--border); }
+
+/* Section label — type-h2-13: 13px 500 lh:1.60 ls:0.78px */
+.sectionTitle {
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-78);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.list { display: flex; flex-direction: column; }
+
+.item {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none; cursor: pointer;
+  transition: opacity var(--transition);
+}
+.item:first-child { border-top: 1px solid var(--border); }
+.item:hover { opacity: .8; }
+
+.thumb {
+  width: 88px; height: 60px;
+  border-radius: var(--radius-md);
+  overflow: hidden; flex-shrink: 0;
+}
+.thumbImg { width: 100%; height: 100%; object-fit: cover; }
+
+.info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+/* Category — type-small-11: 11px 500 lh:1.60 ls:0.88px */
+.cat {
+  font-size: var(--text-11);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-88);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Article title — type-h3: 14px 500 lh:1.45 ls:-0.145px */
+.title {
+  font-size: var(--text-14);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: var(--tracking-neg-0-145);
+  color: var(--text-primary);
+}
+
+.arrow {
+  font-size: 16px;
+  color: var(--text-muted);
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+.item:hover .arrow { transform: translateX(4px); color: var(--text-primary); }
+
+.moreWrap { display: flex; justify-content: center; padding-top: 32px; }
+
+/* More link — type-caption-13: 13px 500 lh:1.60 ls:0.13px */
+.more {
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-13);
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+.more:hover { color: var(--text-primary); }
+
+@media (max-width: 480px) {
+  .thumb { width: 72px; height: 52px; }
+}

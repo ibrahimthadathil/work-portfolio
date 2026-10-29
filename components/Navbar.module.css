@@ -1,16 +1,14 @@
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 20px 0;
+  padding: 18px 0;
   transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
   border-bottom: 1px solid transparent;
 }
 
 .nav.scrolled {
-  background: rgba(8, 8, 8, 0.75);
+  background: rgba(8, 8, 8, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom-color: var(--border);
@@ -19,33 +17,32 @@
 .inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-pad);
   display: flex;
   align-items: center;
   gap: 32px;
 }
 
+/* Logo — type-heading-17: 17px 600 ls:-0.34px */
 .logo {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 15px;
+  gap: 7px;
+  font-size: var(--text-17);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-neg-0-34);
   color: var(--text-primary);
   text-decoration: none;
   margin-right: auto;
+  line-height: 1.60;
 }
 
 .logoIcon {
   color: var(--accent-purple-light);
-  font-size: 14px;
+  font-size: var(--text-14);
 }
 
-.logoText {
-  font-family: var(--font-sans);
-}
-
+/* Nav links — type-subheading-15: 15px 600 ls:-0.15px */
 .links {
   display: flex;
   list-style: none;
@@ -54,22 +51,25 @@
 }
 
 .link {
-  font-size: 13.5px;
-  font-weight: 400;
+  font-size: var(--text-15);
+  font-weight: 600;
+  letter-spacing: var(--tracking-neg-0-15);
   color: var(--text-secondary);
   text-decoration: none;
+  line-height: 1.60;
   transition: color var(--transition);
-  letter-spacing: 0.01em;
 }
 
 .link:hover {
   color: var(--text-primary);
 }
 
+/* CTA — type-button: 14px 500 */
 .cta {
-  font-size: 13px;
+  font-size: var(--text-14);
   font-weight: 500;
-  padding: 8px 16px;
+  line-height: normal;
+  padding: 9px 18px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border-hover);
   color: var(--text-primary);
@@ -80,11 +80,10 @@
 
 .cta:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
-@media (max-width: 640px) {
-  .links {
-    display: none;
-  }
+@media (max-width: 768px) {
+  .links { display: none; }
+  .inner { padding: 0 var(--container-pad); }
 }

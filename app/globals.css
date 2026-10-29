@@ -8,11 +8,81 @@
   padding: 0;
 }
 
+/* ============================================
+   COLOR TOKENS (from athos-dark.framer.ai)
+   ============================================ */
 :root {
-  /* Colors */
-  --bg-primary: #080808;
-  --bg-secondary: #111111;
-  --bg-card: #141414;
+  /* Background palette */
+  --color-black:        #000000;
+  --color-black-1:      #141414;
+  --color-black-2:      #0f151f;
+  --color-dark-slate-gray: #2a3f4c;
+  --color-charcoal:     #3c3f44;
+  --color-teal:         #0f6499;
+  --color-dim-gray:     #5a6165;
+  --color-orange:       #ff6c0a;
+  --color-coral:        #d48740;
+  --color-white-smoke:  #f4f2ef;
+  --color-white-smoke-1:#f5f3f0;
+  --color-white-smoke-2:#f9f7f6;
+  --color-white-smoke-3:#faf8f7;
+  --color-lime-green:   #22cc66;
+  --color-dark-khaki:   #82c95e;
+  --color-light-green:  #9de954;
+  --color-white:        #ffffff;
+  --color-plum:         #ba8ad6;
+
+  /* Gradient tokens */
+  --gradient-linear:   linear-gradient(#2a3f4c 0%, #2a3f4c 100%);
+  --gradient-radial:   radial-gradient(61% 200% at 39.7% 21.9%, #ffffff 0%, #b4c3cc 100%);
+  --gradient-radial-1: radial-gradient(3.7744% 5.6% at 50% 100%, #4d6043 0%, #ababab 100%);
+  --gradient-radial-2: radial-gradient(#000000, #7dcbff 0%, #7dcbff 100%);
+}
+
+/* ============================================
+   TYPOGRAPHY TOKENS (from Athos Dark source)
+   ============================================ */
+:root {
+  /* Font family */
+  --font-hanken-grotesk: 'Hanken Grotesk', sans-serif;
+  --font-sans: 'Hanken Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-script: 'Allison', cursive;
+
+  /* Font sizes */
+  --text-11: 11px;
+  --text-12: 12px;
+  --text-13: 13px;
+  --text-14: 14px;
+  --text-15: 15px;
+  --text-16: 16px;
+  --text-17: 17px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-22: 22px;
+  --text-24: 24px;
+  --text-44: 44px;
+
+  /* Letter-spacing tokens */
+  --tracking-neg-1-32: -1.32px;
+  --tracking-neg-0-72: -0.72px;
+  --tracking-neg-0-66: -0.66px;
+  --tracking-neg-0-44: -0.44px;
+  --tracking-neg-0-36: -0.36px;
+  --tracking-neg-0-34: -0.34px;
+  --tracking-neg-0-15: -0.15px;
+  --tracking-neg-0-3:  -0.3px;
+  --tracking-neg-0-145: -0.145px;
+  --tracking-0-13:  0.13px;
+  --tracking-0-25:  0.25px;
+  --tracking-0-77:  0.77px;
+  --tracking-0-78:  0.78px;
+  --tracking-0-88:  0.88px;
+  --tracking-0-135: 0.135px;
+
+  /* ---- Colors ---- */
+  --bg-primary: var(--color-black);       /* #000000 */
+  --bg-secondary: var(--color-black-2);    /* #0f151f */
+  --bg-card: var(--color-black-1);         /* #141414 */
   --bg-card-hover: #1a1a1a;
   --border: rgba(255, 255, 255, 0.07);
   --border-hover: rgba(255, 255, 255, 0.14);
@@ -24,38 +94,224 @@
   --accent-purple: #7c3aed;
   --accent-purple-light: #a78bfa;
   --accent-purple-glow: rgba(124, 58, 237, 0.3);
-
   --accent-blue: #3b82f6;
   --accent-green: #10b981;
   --accent-orange: #f59e0b;
   --accent-pink: #ec4899;
 
-  /* Spacing */
-  --max-width: 740px;
-  --section-gap: 80px;
+  /* ---- Layout ---- */
+  --max-width: 960px;
+  --section-gap: 96px;
+  --container-pad: 40px;
 
-  /* Typography */
-  --font-sans: 'Hanken Grotesk', 'Inter', -apple-system, sans-serif;
-  --font-script: 'Allison', cursive;
-
-  /* Radius */
+  /* ---- Radius ---- */
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
   --radius-full: 999px;
 
-  /* Transitions */
+  /* ---- Transitions ---- */
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ============================================
+   SEMANTIC TYPE STYLES (Athos Dark system)
+   ============================================ */
+
+/* H1 — 44px 600 lh:1.20 ls:-1.32px */
+.type-h1 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-44);
+  font-weight: 600;
+  line-height: 1.20;
+  letter-spacing: var(--tracking-neg-1-32);
+}
+
+/* Large Title — 44px 300 lh:1.20 ls:-1.32px */
+.type-large-title {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-44);
+  font-weight: 300;
+  line-height: 1.20;
+  letter-spacing: var(--tracking-neg-1-32);
+}
+
+/* Heading — 24px 700 lh:1.60 ls:-0.72px */
+.type-heading {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-24);
+  font-weight: 700;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-72);
+}
+
+/* Subheading — 22px 700 lh:1.60 ls:-0.66px */
+.type-subheading {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-22);
+  font-weight: 700;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-66);
+}
+
+/* H2 — 18px 600 lh:1.30 ls:-0.36px */
+.type-h2 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-18);
+  font-weight: 600;
+  line-height: 1.30;
+  letter-spacing: var(--tracking-neg-0-36);
+}
+
+/* Heading 17 — 17px 600 lh:1.60 ls:-0.34px */
+.type-heading-17 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-17);
+  font-weight: 600;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-34);
+}
+
+/* Body 16 — 16px 400 lh:1.60 */
+.type-body {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-16);
+  font-weight: 400;
+  line-height: 1.60;
+}
+
+/* Subheading 15 — 15px 600 lh:1.60 ls:-0.15px */
+.type-subheading-15 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-15);
+  font-weight: 600;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-15);
+}
+
+/* Body 15 — 15px 400 lh:1.70 */
+.type-body-15 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-15);
+  font-weight: 400;
+  line-height: 1.70;
+}
+
+/* Subheading 14-600 — 14px 600 lh:1.60 ls:-0.3px */
+.type-subheading-14-600 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-14);
+  font-weight: 600;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-neg-0-3);
+}
+
+/* Button — 14px 500 lh:normal */
+.type-button {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-14);
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* H3 — 14px 500 lh:1.45 ls:-0.145px */
+.type-h3 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-14);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: var(--tracking-neg-0-145);
+}
+
+/* Body 14 — 14px 400 lh:1.81 */
+.type-body-14 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-14);
+  font-weight: 400;
+  line-height: 1.81;
+}
+
+/* Caption — 13px 700 lh:1.00 */
+.type-caption {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-13);
+  font-weight: 700;
+  line-height: 1.00;
+}
+
+/* Caption 13 — 13px 500 lh:1.60 ls:0.13px */
+.type-caption-13 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-13);
+}
+
+/* H2-13 — 13px 500 lh:1.60 ls:0.78px (section labels) */
+.type-h2-13 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-13);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-78);
+}
+
+/* Caption 13-400 — 13px 400 lh:1.60 */
+.type-caption-13-400 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-13);
+  font-weight: 400;
+  line-height: 1.60;
+}
+
+/* Caption 12 — 12px 500 lh:1.67 ls:0.25px */
+.type-caption-12 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-12);
+  font-weight: 500;
+  line-height: 1.67;
+  letter-spacing: var(--tracking-0-25);
+}
+
+/* Caption 12-400 — 12px 400 lh:1.67 */
+.type-caption-12-400 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-12);
+  font-weight: 400;
+  line-height: 1.67;
+}
+
+/* Small 11 — 11px 500 lh:1.60 ls:0.88px */
+.type-small-11 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-11);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-88);
+}
+
+/* Small 11-500 — 11px 500 lh:1.60 ls:0.77px */
+.type-small-11-500 {
+  font-family: var(--font-hanken-grotesk);
+  font-size: var(--text-11);
+  font-weight: 500;
+  line-height: 1.60;
+  letter-spacing: var(--tracking-0-77);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-hanken-grotesk);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -64,15 +320,8 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
+a   { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 button {
   cursor: pointer;
   border: none;
@@ -86,7 +335,7 @@ button {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-pad);
 }
 
 .section {
@@ -96,16 +345,9 @@ button {
 /* ============================================
    SCROLLBAR
    ============================================ */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 2px;
-}
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
 
 /* ============================================
    SELECTION
@@ -116,10 +358,17 @@ button {
 }
 
 /* ============================================
-   DIVIDER
+   MOBILE GLOBAL OVERRIDES
    ============================================ */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0;
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 64px;
+    --container-pad: 20px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --section-gap: 48px;
+    --container-pad: 16px;
+  }
 }

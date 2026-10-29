@@ -3,13 +3,16 @@ import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
 
 const socialLinks = [
-  { icon: "𝔹", label: "Behance", color: "#1769ff", href: "#" },
-  { icon: "𝔽", label: "Framer", color: "#8855ff", href: "#" },
-  { icon: "𝕃", label: "LinkedIn", color: "#0a66c2", href: "#" },
-  { icon: "𝕏", label: "Twitter", color: "#888", href: "#" },
-  { icon: "𝔾", label: "GitHub", color: "#aaa", href: "#" },
-  { icon: "𝕀", label: "Instagram", color: "#e1306c", href: "#" },
-  { icon: "𝔻", label: "Dribbble", color: "#ea4c89", href: "#" },
+  { label: "Behance",  icon: "Be", color: "#1769ff", href: "#" },
+  { label: "Framer",   icon: "Fr", color: "#8855ff", href: "#" },
+  { label: "LinkedIn", icon: "in", color: "#0a66c2", href: "#" },
+  { label: "Twitter",  icon: "𝕏",  color: "#aaaaaa", href: "#" },
+  { label: "GitHub",   icon: "",  color: "#cccccc", href: "#" },
+  { label: "Instagram",icon: "ig", color: "#e1306c", href: "#" },
+  { label: "Dribbble", icon: "",  color: "#ea4c89", href: "#" },
+  { label: "Figma",    icon: "F",  color: "#f24e1e", href: "#" },
+  { label: "Notion",   icon: "N",  color: "#ffffff", href: "#" },
+  { label: "Medium",   icon: "M",  color: "#00ab6c", href: "#" },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -19,6 +22,9 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
+  // Double the list for seamless infinite loop
+  const marqueeItems = [...socialLinks, ...socialLinks];
+
   return (
     <section className={styles.hero}>
       {/* Background orb */}
@@ -33,15 +39,6 @@ export default function Hero() {
 
         {/* Avatar */}
         <motion.div className={styles.avatarWrap} {...fadeUp(0.2)}>
-          <img
-            src="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png"
-            alt="Designer Avatar"
-            className={styles.avatar}
-            onError={(e) => {
-              const t = e.target as HTMLImageElement;
-              t.style.display = "none";
-            }}
-          />
           <div className={styles.avatarFallback}>AD</div>
         </motion.div>
 
@@ -54,9 +51,9 @@ export default function Hero() {
 
         {/* Sub text */}
         <motion.p className={styles.sub} {...fadeUp(0.4)}>
-          A UX & Product Designer crafting purposeful digital experiences.
+          A UX &amp; Product Designer crafting purposeful digital experiences.
           <br />
-          Currently open to full-time & freelance opportunities.
+          Currently open to full-time &amp; freelance opportunities.
         </motion.p>
 
         {/* CTA buttons */}
@@ -68,24 +65,36 @@ export default function Hero() {
             Say hello →
           </a>
         </motion.div>
+      </div>
 
-        {/* Social icons */}
-        <motion.div className={styles.socials} {...fadeUp(0.6)}>
-          {socialLinks.map((s) => (
-            <motion.a
-              key={s.label}
+      {/* ── Infinite Marquee Social Icons ── */}
+      <motion.div
+        className={styles.marqueeOuter}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7, duration: 0.8 }}
+      >
+        {/* Left fade */}
+        <div className={`${styles.fadeEdge} ${styles.fadeLeft}`} />
+
+        <div className={styles.marqueeTrack}>
+          {marqueeItems.map((s, i) => (
+            <a
+              key={`${s.label}-${i}`}
               href={s.href}
-              className={styles.socialIcon}
+              className={styles.marqueeItem}
               style={{ "--glow": s.color } as React.CSSProperties}
-              whileHover={{ scale: 1.12, y: -2 }}
-              whileTap={{ scale: 0.96 }}
               title={s.label}
             >
-              {s.icon}
-            </motion.a>
+              <span className={styles.iconText}>{s.icon}</span>
+              <span className={styles.iconLabel}>{s.label}</span>
+            </a>
           ))}
-        </motion.div>
-      </div>
+        </div>
+
+        {/* Right fade */}
+        <div className={`${styles.fadeEdge} ${styles.fadeRight}`} />
+      </motion.div>
     </section>
   );
 }
