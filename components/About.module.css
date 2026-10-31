@@ -1,135 +1,145 @@
-.section { position: relative; overflow: hidden; }
+.section {
+  position: relative;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
 
 .orb {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 600px; height: 600px;
-  background: radial-gradient(circle at center, rgba(124,58,237,.22) 0%, transparent 60%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(138, 172, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
   pointer-events: none;
-  animation: pulse 7s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { transform: translate(-50%,-50%) scale(1);   opacity: .7; }
-  50%     { transform: translate(-50%,-50%) scale(1.1); opacity: 1;  }
+  z-index: 0;
 }
 
 .inner {
-  background: rgba(20,20,20,.7);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 36px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex; flex-direction: column; gap: 24px;
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.header {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; gap: 12px;
+.statement {
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 2;
+  color: #6d7279;
+  margin: 10px;
 }
 
-.avatarRow { display: flex; align-items: center; gap: 12px; }
-
-.avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
-  display: flex; align-items: center; justify-content: center;
-  /* type-subheading-14-600 */
-  font-size: var(--text-14);
-  font-weight: 700;
-  color: white; flex-shrink: 0;
-}
-
-.nameBlock { display: flex; flex-direction: column; gap: 2px; }
-
-/* Name — type-subheading-14-600: 14px 600 lh:1.60 ls:-0.3px */
-.name {
-  font-size: var(--text-14);
-  font-weight: 600;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-neg-0-3);
-  color: var(--text-primary);
-}
-
-/* Handle — type-caption-12-400: 12px 400 lh:1.67 */
-.handle {
-  font-size: var(--text-12);
-  font-weight: 400;
-  line-height: 1.67;
-  color: var(--text-muted);
-}
-
-/* Role badge — type-small-11: 11px 500 ls:0.88px */
 .badge {
-  font-size: var(--text-11);
-  font-weight: 500;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-0-88);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background: rgba(124,58,237,.15);
-  border: 1px solid rgba(124,58,237,.3);
-  color: var(--accent-purple-light);
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 16px;
+  margin: 0 0.25rem;
+  vertical-align: middle;
+
+  /* Typography */
+  font-family: "Poppins", sans-serif;
+  font-size: 20px; /* Inherits from parent text */
+  font-weight: 300;
+  white-space: nowrap;
+  text-decoration: none;
+
+  /* Badge Shape & Border */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.03),
+    0 0 20px rgba(255, 255, 255, 0.05);
+
+  /* Shine Effect (Applied to background, clipped to text) */
+  background-image: linear-gradient(to right, #9f9f9f 0%, #ffffff 10%, #868686 20%);
+  background-size: 200% auto;
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  animation: shine 3s infinite linear;
 }
 
-/* Logo row — type-caption-12-400: 12px 400 */
-.logoRow {
-  display: flex; align-items: center; gap: 8px;
-  font-size: var(--text-12);
-  font-weight: 400;
-  line-height: 1.67;
-  color: var(--text-muted);
+/* Required keyframes for the shine animation */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
-.framerBadge { color: var(--accent-purple-light); font-weight: 500; }
-
-/* Bio — type-body-15: 15px 400 lh:1.70 */
-.bio {
-  font-size: var(--text-15);
-  font-weight: 400;
-  line-height: 1.70;
-  color: var(--text-secondary);
+@-moz-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-o-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+.break {
+  display: none;
 }
 
-.accentLink {
-  color: var(--text-primary);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--border-hover);
-  text-underline-offset: 3px;
-  transition: text-decoration-color var(--transition);
-}
-.accentLink:hover { text-decoration-color: var(--accent-purple-light); }
+@media (min-width: 768px) {
+  .statement {
+    font-size: 1.75rem;
+    line-height: 2.2;
+  }
 
-.statsRow {
-  display: flex; gap: 36px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-
-.statItem { display: flex; flex-direction: column; gap: 3px; }
-
-/* Stat num — type-heading: 24px 700 lh:1.60 ls:-0.72px */
-.statNum {
-  font-size: var(--text-24);
-  font-weight: 700;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-neg-0-72);
-  color: var(--text-primary);
-}
-
-/* Stat label — type-caption-12-400: 12px 400 lh:1.67 */
-.statLbl {
-  font-size: var(--text-12);
-  font-weight: 400;
-  line-height: 1.67;
-  color: var(--text-muted);
-}
-
-@media (max-width: 480px) {
-  .inner { padding: 24px 20px; }
-  .statsRow { gap: 24px; }
+  .break {
+    display: block;
+  }
 }

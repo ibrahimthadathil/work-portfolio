@@ -7,19 +7,22 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import { MeshGradient } from "@/components/ui/mesh-gradient";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
-      <Hero />
-      <WorkCards />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <FAQ />
-      <Footer />
+      <MeshGradient className="flex min-h-[32rem] items-center justify-center">
+        <Navbar />
+        <Hero />
+        <WorkCards />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <FAQ />
+        <Footer />
+      </MeshGradient>
     </main>
   );
 }
