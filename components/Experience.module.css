@@ -33,6 +33,20 @@
 }
 .item:first-child { border-top: 1px solid var(--border); }
 .item:hover { opacity: .8; }
+.item { flex-wrap: wrap; }
+
+.subSection { margin-top: 64px; }
+
+/* Responsibilities under a job */
+.points {
+  flex: 1 1 100%;
+  margin: 0;
+  padding-inline-start: 18px;
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: var(--text-14);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
 
 .left  { display: flex; flex-direction: column; gap: 3px; }
 .right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }

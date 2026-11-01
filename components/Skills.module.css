@@ -22,6 +22,19 @@
   border-radius: 50%;
 }
 
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.groupName {
+  font-size: var(--text-13, 13px);
+  font-weight: 500;
+  color: var(--text-muted, rgba(255, 255, 255, 0.5));
+  margin-bottom: 12px;
+}
+
 /* Container for all skills */
 .pills {
   display: flex;

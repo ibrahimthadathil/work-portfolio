@@ -27,7 +27,7 @@
   line-height: 1.60;
   letter-spacing: var(--tracking-neg-0-15);
   color: var(--text-primary);
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   background: none; border: none;
   gap: 16px;

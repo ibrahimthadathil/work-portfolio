@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./About.module.css";
+import { useLanguage } from "./LanguageProvider";
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <section id="about" className={styles.section}>
       {/* Background glow effect matching the image */}
@@ -17,11 +19,15 @@ export default function About() {
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className={styles.statement}>
-            Web designer and expert in <span className={styles.badge}>UX/UI Design</span> with over{" "}
-            <span className={styles.badge}>15 years</span> of industry experience. Expertise extends to{" "}
-            <span className={styles.badge}>Framer Development</span> enabling him to create<br className={styles.break} /> 
-            both aesthetically pleasing and easily implementable.<br className={styles.break} /> 
-            Currently works as <span className={styles.badge}>Product Designer</span> at FLYR Hospitality
+            {t.about.map((seg, i) =>
+              seg.badge ? (
+                <span key={i} className={styles.badge}>
+                  {seg.text}
+                </span>
+              ) : (
+                <span key={i}>{seg.text}</span>
+              ),
+            )}
           </h2>
         </motion.div>
       </div>

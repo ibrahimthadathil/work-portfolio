@@ -2,19 +2,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
-
-const links = [
-  { label: "Work", href: "#work" },
-  { label: "Experience", href: "#experience" },
-  { label: "Blog", href: "#blog" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Proposal", href: "#proposal" },
-  { label: "Calculator", href: "#calculator" },
-  { label: "Nicey Studio", href: "#nicey-studio" },
-];
+import { useLanguage } from "./LanguageProvider";
+import { profile } from "@/lib/i18n/content";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { t, toggle } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,13 +26,13 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className={styles.logo}>
           <span className={styles.logoIcon}>✦</span>
-          <span className={styles.logoText}>IBM</span>
+          <span className={styles.logoText}>{profile.initials}</span>
         </a>
 
         {/* Links */}
         <ul className={styles.links}>
-          {links.map((l) => (
-            <li key={l.label}>
+          {t.nav.links.map((l) => (
+            <li key={l.href}>
               <a href={l.href} className={styles.link}>
                 {l.label}
               </a>
@@ -47,10 +40,20 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a href="mailto:hello@example.com" className={styles.cta}>
-          Contact Creator
-        </a>
+        {/* Language switch + CTA */}
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.lang}
+            onClick={toggle}
+            aria-label={t.nav.switchLabel}
+          >
+            {t.nav.switchTo}
+          </button>
+          <a href={`mailto:${profile.email}`} className={styles.cta}>
+            {t.nav.cta}
+          </a>
+        </div>
       </div>
     </motion.nav>
   );

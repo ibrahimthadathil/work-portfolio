@@ -3,28 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./FAQ.module.css";
 
-const faqs = [
-  {
-    q: "What's your design process like?",
-    a: "I follow a human-centered design process: discover, define, ideate, prototype, and test. Every project starts with understanding the user's goals and business constraints before touching any tools.",
-  },
-  {
-    q: "Are you available for freelance projects?",
-    a: "Yes! I'm currently open to select freelance projects. I prefer long-term engagements where I can make a real impact. Reach out via email to discuss your project.",
-  },
-  {
-    q: "What tools do you use for design?",
-    a: "Figma is my primary design tool for UI/UX work. I use Framer for interactive prototypes and websites, Principle for micro-animation, and FigJam for workshopping and research synthesis.",
-  },
-  {
-    q: "Do you also handle development?",
-    a: "I can build functional prototypes and simple websites using React, Next.js, and Framer. For production-grade development, I collaborate closely with engineering teams to ensure design is implemented faithfully.",
-  },
-  {
-    q: "How do you handle feedback and revisions?",
-    a: "Structured feedback rounds are built into my process. I typically share work-in-progress early and often, using Figma's commenting features and async video reviews to minimize lengthy meetings.",
-  },
-];
+import { useLanguage } from "./LanguageProvider";
 
 function FAQItem({ q, a, open, onClick }: { q: string; a: string; open: boolean; onClick: () => void }) {
   return (
@@ -58,6 +37,7 @@ function FAQItem({ q, a, open, onClick }: { q: string; a: string; open: boolean;
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section id="faq" className={`section ${styles.section}`}>
@@ -68,7 +48,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+          <h2 className={styles.sectionTitle}>{t.faq.title}</h2>
         </motion.div>
 
         <motion.div
@@ -78,7 +58,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          {faqs.map((f, i) => (
+          {t.faq.items.map((f, i) => (
             <FAQItem
               key={i}
               q={f.q}

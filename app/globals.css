@@ -446,3 +446,13 @@ button {
     background-position: 0% 0%;
   }
 }
+/* ---- Arabic / RTL ---- */
+html[dir="rtl"] {
+  --font-hanken-grotesk: "Noto Sans Arabic", "Hanken Grotesk", sans-serif;
+  --font-sans: "Noto Sans Arabic", "Hanken Grotesk", "Inter", sans-serif;
+}
+
+/* Letter-spacing breaks Arabic letter joining */
+html[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}

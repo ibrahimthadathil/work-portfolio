@@ -1,16 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./Footer.module.css";
-
-const links = [
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Behance", href: "#" },
-  { label: "Dribbble", href: "#" },
-  { label: "GitHub", href: "#" },
-];
+import { useLanguage } from "./LanguageProvider";
+import { profile } from "@/lib/i18n/content";
 
 export default function Footer() {
+  const { t, lang } = useLanguage();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.glow} />
@@ -25,16 +21,18 @@ export default function Footer() {
           {/* Logo */}
           <div className={styles.logoBlock}>
             <span className={styles.logo}>
-              <span className={styles.logoIcon}>✦</span> athos
+              <span className={styles.logoIcon}>✦</span> {profile.name[lang]}
             </span>
             <p className={styles.tagline}>
-              Designed for Designers.<br />Built with Framer.
+              {t.footer.tagline[0]}
+              <br />
+              {t.footer.tagline[1]}
             </p>
           </div>
 
           {/* Links */}
           <div className={styles.linkGroup}>
-            {links.map((l) => (
+            {profile.socials.map((l) => (
               <a key={l.label} href={l.href} className={styles.link}>
                 {l.label}
               </a>
@@ -43,10 +41,14 @@ export default function Footer() {
 
           {/* Bottom */}
           <div className={styles.bottom}>
-            <span>© {new Date().getFullYear()} Athos Design. All rights reserved.</span>
-            <a href="mailto:hello@athos.design" className={styles.email}>
-              hello@athos.design
-            </a>
+            <span>
+              © {new Date().getFullYear()} {profile.name[lang]}. {t.footer.rights}
+            </span>
+            <span className={styles.email} dir="ltr">
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              {" · "}
+              <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
+            </span>
           </div>
         </motion.div>
       </div>

@@ -4,6 +4,8 @@ import type { Transition } from "framer-motion";
 import { motion } from "framer-motion";
 
 import styles from "./Hero.module.css";
+import { useLanguage } from "./LanguageProvider";
+import { profile } from "@/lib/i18n/content";
 
 import {
   SiCursor,
@@ -303,6 +305,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
+  const { t } = useLanguage();
   // Double the list for seamless infinite loop
 
   const doublLink = [...socialLinks, ...socialLinks];
@@ -318,29 +321,29 @@ export default function Hero() {
 
         <motion.div className={styles.badge} {...fadeUp(0.1)}>
           <span className={styles.dot} />
-          Available for work
+          {t.hero.badge}
         </motion.div>
 
         {/* Avatar */}
 
         <motion.div className={styles.avatarWrap} {...fadeUp(0.2)}>
-          <div className={styles.avatarFallback}>AD</div>
+          <div className={styles.avatarFallback}>{profile.initials}</div>
         </motion.div>
 
         {/* Headline */}
 
         <motion.h1 className={styles.headline} {...fadeUp(0.3)}>
-          Designed for Designers to
+          {t.hero.headline}
           <br />
-          <span className={styles.italic}>showcase their work.</span>
+          <span className={styles.italic}>{t.hero.headlineItalic}</span>
         </motion.h1>
 
         {/* Sub text */}
 
         <motion.p className={styles.sub} {...fadeUp(0.4)}>
-          A UX &amp; Product Designer crafting purposeful digital experiences.
+          {t.hero.sub}
           <br />
-          Currently open to full-time &amp; freelance opportunities.
+          {t.hero.subSecond}
         </motion.p>
         {/* CTA buttons */}
 
@@ -367,11 +370,11 @@ export default function Hero() {
                 d="M5 2L5.75 3.75L7.5 4.5L5.75 5.25L5 7L4.25 5.25L2.5 4.5L4.25 3.75L5 2Z"
               />
             </svg>
-            <span className={styles.text_button}>View my work</span>
+            <span className={styles.text_button}>{t.hero.cta}</span>
           </a>
           {/* cta-secondary */}
-          <a href="mailto:hello@athos.design" className={styles.ctaSecondary}>
-            Say hello →
+          <a href={`mailto:${profile.email}`} className={styles.ctaSecondary}>
+            {t.hero.hello}
           </a>
         </motion.div>
       </div>

@@ -23,6 +23,14 @@
 .item:first-child { border-top: 1px solid var(--border); }
 .item:hover { opacity: .8; }
 
+.static { cursor: default; }
+
+.desc {
+  font-size: var(--text-13);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
 .thumb {
   width: 88px; height: 60px;
   border-radius: var(--radius-md);
