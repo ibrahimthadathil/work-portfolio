@@ -1,57 +1,50 @@
-.section { border-top: 1px solid var(--border); }
+.section {
+ 
+  padding-top: 40px; /* Add breathing room above */
+}
 
-/* Section label — type-h2-13: 13px 500 lh:1.60 ls:0.78px */
+/* Section label */
 .sectionTitle {
-  font-size: var(--text-13);
-  font-weight: 500;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-0-78);
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 28px;
-}
-
-.groups { display: flex; flex-direction: column; gap: 18px; }
-
-.group {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-/* Group label — type-caption-13-400: 13px 400 lh:1.60 */
-.groupLabel {
-  font-size: var(--text-13);
-  font-weight: 400;
-  line-height: 1.60;
-  color: var(--text-muted);
-  padding-top: 4px;
-}
-
-.pills { display: flex; flex-wrap: wrap; gap: 8px; }
-
-/* Pill — type-caption-13: 13px 500 lh:1.60 ls:0.13px */
-.pill {
-  font-size: var(--text-13);
-  font-weight: 500;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-0-13);
-  padding: 5px 13px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: var(--text-secondary);
-  cursor: default;
-  transition: background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
-}
-.pill:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.18);
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--text-primary);
-  box-shadow: 0 0 12px rgba(124,58,237,.18);
+  font-size: var(--text-24, 24px);
+  font-weight: 300; /* Lighter font weight to match the reference */
+  margin-bottom: 24px; /* Increased gap before the skills block */
 }
 
-@media (max-width: 520px) {
-  .group { grid-template-columns: 1fr; gap: 8px; }
+.orangeDot {
+  display: inline-block;
+  width: 10px; /* Slightly smaller dot */
+  height: 10px;
+  background-color: var(--color-orange, #ff6c0a);
+  border-radius: 50%;
+}
+
+/* Container for all skills */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* Consistent spacing between all items */
+  max-width: 850px; /* Keeps the block contained so it wraps nicely */
+}
+
+/* Pill shape matching the image */
+.pill {
+  font-size: var(--text-14, 14px); /* Scaled down from 20px */
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 16px;
+  border-radius: 8px; /* Rounded rectangle rather than a heavy 20% */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--text-primary, #f0f0f0);
+  cursor: default;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
 }

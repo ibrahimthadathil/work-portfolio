@@ -1,13 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
 
 const links = [
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Blog", href: "#blog" },
   { label: "FAQ", href: "#faq" },
+  { label: "Proposal", href: "#proposal" },
+  { label: "Calculator", href: "#calculator" },
+  { label: "Nicey Studio", href: "#nicey-studio" },
 ];
 
 export default function Navbar() {
@@ -30,7 +33,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className={styles.logo}>
           <span className={styles.logoIcon}>✦</span>
-          <span className={styles.logoText}>athos</span>
+          <span className={styles.logoText}>IBM</span>
         </a>
 
         {/* Links */}
@@ -45,8 +48,8 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <a href="mailto:hello@athos.design" className={styles.cta}>
-          Get in touch
+        <a href="mailto:hello@example.com" className={styles.cta}>
+          Contact Creator
         </a>
       </div>
     </motion.nav>

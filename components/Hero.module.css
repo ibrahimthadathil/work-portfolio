@@ -339,11 +339,25 @@
 /* ── Infinite Marquee ── */
 .marqueeOuter {
   position: relative;
-  width: calc(100% - 25rem);
+  width: calc(100% - 15rem);
   margin-inline: 5rem;
   overflow: hidden;
   padding-bottom: 56px;
   box-sizing: border-box;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,   /* Content fully visible starting at 15% from left */
+    black 85%,   /* Content stays fully visible until 85% */
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 .fadeEdge {
   position: absolute;
@@ -353,14 +367,7 @@
   z-index: 2;
   pointer-events: none;
 }
-.fadeLeft {
-  left: 0;
-  background: linear-gradient(to right, var(--bg-primary) 10%, transparent);
-}
-.fadeRight {
-  right: 0;
-  background: linear-gradient(to left, var(--bg-primary) 10%, transparent);
-}
+
 
 .marqueeTrack {
   display: flex;

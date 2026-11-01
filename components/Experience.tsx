@@ -40,7 +40,9 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.sectionTitle}>Experience</h2>
+          <h2 className={styles.sectionTitle}>
+            <span className={styles.orangeDot}></span> Experience
+          </h2>
         </motion.div>
 
         <div className={styles.list}>

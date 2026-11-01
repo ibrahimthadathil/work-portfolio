@@ -1,89 +1,104 @@
+/* Navbar.module.css */
+
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 24px; /* Floats away from the top edge */
+  left: 20%;
+  transform: translateX(-50%); /* Centers the capsule */
   z-index: 100;
-  padding: 18px 0;
-  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
-  border-bottom: 1px solid transparent;
+  
+  /* Capsule Shape & Constraints */
+  width: max-content;
+  max-width: 95vw;
+  border-radius: 999px;
+  
+  /* Glass Effect & Thin Border */
+  background-color: rgba(15, 21, 31, 0.3); /* Translucent dark background */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Thin, subtle border */
+  
+  padding: 12px 24px;
+  transition: all 0.3s ease;
 }
 
+/* Optional: Slight color change or shrink when scrolling */
 .nav.scrolled {
-  background: rgba(8, 8, 8, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom-color: var(--border);
+  background-color: rgba(15, 21, 31, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 20px;
 }
 
 .inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-pad);
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: space-between;
+  gap: 48px; /* Spacing between logo, links, and button */
 }
 
-/* Logo — type-heading-17: 17px 600 ls:-0.34px */
 .logo {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: var(--text-17);
+  gap: 8px;
   font-weight: 600;
-  letter-spacing: var(--tracking-neg-0-34);
-  color: var(--text-primary);
-  text-decoration: none;
-  margin-right: auto;
-  line-height: 1.60;
+  font-size: var(--text-18, 18px);
+  letter-spacing: var(--tracking-neg-0-36, -0.36px);
+  color: var(--text-primary, #ffffff);
 }
 
 .logoIcon {
-  color: var(--accent-purple-light);
-  font-size: var(--text-14);
+  color: var(--text-primary, #ffffff);
 }
 
-/* Nav links — type-subheading-15: 15px 600 ls:-0.15px */
+.logoText {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .links {
   display: flex;
-  list-style: none;
-  gap: 28px;
   align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .link {
-  font-size: var(--text-15);
-  font-weight: 600;
-  letter-spacing: var(--tracking-neg-0-15);
-  color: var(--text-secondary);
-  text-decoration: none;
-  line-height: 1.60;
-  transition: color var(--transition);
+  font-size: var(--text-14, 14px);
+  color: var(--text-primary, #ffffff);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  font-weight: 400;
 }
 
 .link:hover {
-  color: var(--text-primary);
+  opacity: 1;
 }
 
-/* CTA — type-button: 14px 500 */
 .cta {
-  font-size: var(--text-14);
+  font-size: var(--text-14, 14px);
   font-weight: 500;
-  line-height: normal;
-  padding: 9px 18px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-hover);
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
-  transition: background var(--transition), border-color var(--transition);
+  color: var(--text-primary, #ffffff);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 999px; /* Pill shape */
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .cta:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.22);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-@media (max-width: 768px) {
-  .links { display: none; }
-  .inner { padding: 0 var(--container-pad); }
+/* Mobile Responsiveness */
+@media (max-width: 960px) {
+  .inner {
+    gap: 24px;
+  }
+  .links {
+    display: none; /* Hides standard links on smaller screens to preserve the capsule shape */
+  }
 }

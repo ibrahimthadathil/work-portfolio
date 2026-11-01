@@ -354,7 +354,7 @@ body {
   background-size: 200% 200%;
   
   /* Apply the waving animation: 15s duration, smooth easing, infinite loop, reverses back and forth */
-  animation: waveGradient 15s ease infinite alternate;
+  animation: waveGradient 5s ease infinite alternate;
   
   color: var(--text-primary);
   line-height: 1.6;
@@ -409,8 +409,8 @@ button {
    SELECTION
    ============================================ */
 ::selection {
-  background: var(--accent-purple-glow);
-  color: var(--accent-purple-light);
+  background: var(--accent-blue-glow);
+  color: var(--accent-yellow-light);
 }
 
 /* ============================================

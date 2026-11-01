@@ -1,15 +1,24 @@
-.section { border-top: 1px solid var(--border); }
+
 
 .header { margin-bottom: 28px; }
 
 /* Section label — type-h2-13: 13px 500 lh:1.60 ls:0.78px */
 .sectionTitle {
-  font-size: var(--text-13);
-  font-weight: 500;
-  line-height: 1.60;
-  letter-spacing: var(--tracking-0-78);
-  text-transform: uppercase;
-  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+  font-size: var(--text-24, 24px);
+  font-weight: 300; /* Lighter font weight to match the reference */
+  margin-bottom: 24px; /* Increased gap before the skills block */
+}
+
+.orangeDot {
+  display: inline-block;
+  width: 10px; /* Slightly smaller dot */
+  height: 10px;
+  background-color: var(--color-orange, #ff6c0a);
+  border-radius: 50%;
 }
 
 .list { display: flex; flex-direction: column; }
