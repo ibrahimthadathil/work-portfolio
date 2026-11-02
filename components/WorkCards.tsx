@@ -82,6 +82,9 @@ function StackCard({ project, index }: { project: Project; index: number }) {
   const cardY = useTransform(scrollYProgress, [0, 0.25], [80, 0]);
   const cardOpacity = useTransform(scrollYProgress, [0, 0.18], [0, 1]);
 
+  // Handle typing if project.repoUrl is not yet strictly typed in your Content interface
+  const repoUrl = (project as any).repoUrl; 
+
   return (
     <div ref={slotRef} className={styles.cardSlot} style={{ zIndex: index + 1 }}>
       <motion.div
@@ -93,13 +96,26 @@ function StackCard({ project, index }: { project: Project; index: number }) {
           style={{ y: cardY, opacity: cardOpacity }}
           whileHover={{ y: -6, transition: { duration: 0.3 } }}
         >
-          {/* Left Column: Title, Description, Tag */}
+          {/* Left Column: Title, Description, Tags/Links */}
           <div className={styles.cardLeft}>
             <div className={styles.titleDesc}>
               <h2 className={styles.cardTitle}>{project.title}</h2>
               <p className={styles.cardDesc}>{project.description}</p>
             </div>
-            <div className={styles.pillButton}>{project.tag}</div>
+            <div className={styles.tagsContainer}>
+              <div className={styles.pillButton}>{project.tag}</div>
+              {repoUrl && (
+                <a 
+                  href={repoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.pillButton}
+                  style={{ textDecoration: "none", cursor: "pointer" }}
+                >
+                  GitHub Repo ↗
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Right Column: Visual Box and Stats */}

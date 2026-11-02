@@ -6,7 +6,19 @@
   display: flex;
   align-items: flex-start;
 }
+.tagsContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px; /* Adjust gap as needed */
+  margin-top: auto; /* Pushes the tags to the bottom if the parent is flex */
+}
 
+/* Optional: Add hover effect specifically for the link version of the pill button */
+a.pillButton:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
 .stickyHolder {
   position: sticky;
   top: 100px;

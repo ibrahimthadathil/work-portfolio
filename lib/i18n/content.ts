@@ -4,12 +4,15 @@ export const profile = {
   name: { en: "Muhammed Ibrahim T", ar: "محمد إبراهيم ت" },
   initials: "MI",
   email: "ibrahiminfo8@gmail.com",
-  phone: "+91 8547820072",
+  phone: [
+    { label: "🇶🇦", number: "+974 66639687" },
+    { label: "IND", number: "+91 8547820072" }
+  ],
   // Resume lists these by name only — replace "#" with the real profile URLs.
   socials: [
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
-    { label: "LeetCode", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ibrahim-thadathil-a71a212b1/" },
+    { label: "GitHub", href: "https://github.com/ibrahimthadathil" },
+    { label: "LeetCode", href: "https://leetcode.com/u/ibrahiminfo/" },
   ],
 };
 
@@ -46,6 +49,7 @@ export type Content = {
       description: string;
       tag: string;
       stats: { label: string; value: string }[];
+      repoUrl?:string
     }[];
   };
   about: Segment[];
@@ -88,8 +92,8 @@ const en: Content = {
   hero: {
     badge: "Available for work",
     headline: "Full-Stack Developer shipping",
-    headlineItalic: "maintainable, high-impact systems.",
-    sub: "Software Engineer (MERN) with 1+ year of production experience in TypeScript, Node.js, React & Next.js.",
+    headlineItalic: "Maintainable, high-impact systems.",
+    sub: "Software Developer (MERN) with 1+ year of production experience in TypeScript, Node.js, React & Next.js.",
     subSecond: "Now expanding into AI-integrated apps with LLM APIs.",
     cta: "View my work",
     hello: "Say hello →",
@@ -105,6 +109,7 @@ const en: Content = {
           { label: "Architecture", value: "Clean" },
           { label: "AI Engine", value: "Gemini" },
         ],
+        repoUrl: "https://github.com/ibrahimthadathil/Ai-habit-tracker-Backend",
       },
       {
         title: "LuxBid — Real-Time Auction Platform",
@@ -115,6 +120,7 @@ const en: Content = {
           { label: "Update Latency", value: "<100ms" },
           { label: "Payments", value: "Stripe" },
         ],
+        repoUrl: "https://github.com/ibrahimthadathil/LuxBid",
       },
       {
         title: "Audix — E-Commerce Platform",
@@ -125,6 +131,7 @@ const en: Content = {
           { label: "Architecture", value: "MVC" },
           { label: "Payments", value: "Razorpay" },
         ],
+        repoUrl: "https://github.com/ibrahimthadathil/Audix_E-commerce",
       },
     ],
   },
@@ -304,6 +311,7 @@ const ar: Content = {
           { label: "البنية", value: "Clean" },
           { label: "محرك الذكاء الاصطناعي", value: "Gemini" },
         ],
+         repoUrl: "https://github.com/ibrahimthadathil/Ai-habit-tracker-Backend",
       },
       {
         title: "LuxBid — منصة مزادات فورية",
@@ -314,6 +322,7 @@ const ar: Content = {
           { label: "زمن التحديث", value: "<100ms" },
           { label: "المدفوعات", value: "Stripe" },
         ],
+         repoUrl: "https://github.com/ibrahimthadathil/LuxBid",
       },
       {
         title: "Audix — منصة تجارة إلكترونية",
@@ -324,6 +333,7 @@ const ar: Content = {
           { label: "البنية", value: "MVC" },
           { label: "المدفوعات", value: "Razorpay" },
         ],
+        repoUrl: "https://github.com/ibrahimthadathil/Audix_E-commerce",  
       },
     ],
   },

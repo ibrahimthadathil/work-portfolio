@@ -3,7 +3,7 @@
 .nav {
   position: fixed;
   top: 24px; /* Floats away from the top edge */
-  left: 50%;
+  left: 30%;
   transform: translateX(-50%); /* Centers the capsule */
   z-index: 100;
   

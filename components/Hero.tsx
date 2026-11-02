@@ -41,6 +41,7 @@ import {
   SiRedux,
   SiSocketdotio,
 } from "@icons-pack/react-simple-icons";
+import Image from "next/image";
 
 const socialLinks = [
   {
@@ -319,15 +320,21 @@ export default function Hero() {
       <div className={`container ${styles.content}`}>
         {/* Availability badge */}
 
-        <motion.div className={styles.badge} {...fadeUp(0.1)}>
+        {/* <motion.div className={styles.badge} {...fadeUp(0.1)}>
           <span className={styles.dot} />
           {t.hero.badge}
-        </motion.div>
+        </motion.div> */}
 
         {/* Avatar */}
-
         <motion.div className={styles.avatarWrap} {...fadeUp(0.2)}>
-          <div className={styles.avatarFallback}>{profile.initials}</div>
+          <Image
+            src="/images/profile.webp"
+            alt="Profile photo"
+            fill
+            priority
+            sizes="120px"
+            className={styles.avatarImage}
+          />
         </motion.div>
 
         {/* Headline */}
@@ -335,7 +342,7 @@ export default function Hero() {
         <motion.h1 className={styles.headline} {...fadeUp(0.3)}>
           {t.hero.headline}
           <br />
-          <span className={styles.italic}>{t.hero.headlineItalic}</span>
+          <span className={styles.fadeText}>{t.hero.headlineItalic}</span>
         </motion.h1>
 
         {/* Sub text */}

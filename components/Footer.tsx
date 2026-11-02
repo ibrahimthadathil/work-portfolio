@@ -47,7 +47,12 @@ export default function Footer() {
             <span className={styles.email} dir="ltr">
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
               {" · "}
-              <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
+              {profile.phone.map((p, index) => (
+                <span key={index} style={{ marginLeft: "5px" }}>
+                  {p.label} : <a href={`tel:${p.number.replace(/\s/g, "")}`}>{p.number}</a>
+                  {index < profile.phone.length - 1 ? " | " : ""}
+                </span>
+              ))}
             </span>
           </div>
         </motion.div>
