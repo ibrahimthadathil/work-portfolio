@@ -1,12 +1,13 @@
 .section {
   position: relative;
-  /* Fluid padding: 3rem on mobile up to 6rem on desktop */
-  padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem);
+  /* Reduced from 3.5rem–6rem down to 2rem–3.5rem */
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: clamp(320px, 50vh, 600px);
+  /* Scaled down min-height */
+  min-height: clamp(220px, 35vh, 420px);
   font-family:
     system-ui,
     -apple-system,
@@ -18,8 +19,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(280px, 80vw, 750px);
-  height: clamp(280px, 80vw, 750px);
+  /* Reduced orb footprint from 750px max down to 480px */
+  width: clamp(200px, 50vw, 480px);
+  height: clamp(200px, 50vw, 480px);
   background: radial-gradient(
     circle,
     rgba(138, 172, 255, 0.09) 0%,
@@ -33,17 +35,17 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 740px;
+  /* Brought max-width down from 740px to 620px to avoid loose line lengths */
+  max-width: 620px;
   margin: 0 auto;
   text-align: center;
 }
 
 .statement {
-  /* Fluid font: scales smoothly from 22px on phones to 38px on tablets and 46px on desktop */
-  font-size: clamp(22px, 3.8vw, 44px);
-  font-weight: 300;
-  /* Adjusted line-height to maintain tight, clean spacing when inline badges wrap */
-  line-height: 1.6;
+  /* Scaled down from 22px–44px to a clean, readable 17px–28px */
+  font-size: clamp(17px, 2.2vw, 28px);
+  font-weight: 350;
+  line-height: 1.55;
   color: #8b929c;
   margin: 0;
   letter-spacing: -0.01em;
@@ -55,26 +57,24 @@
   justify-content: center;
   vertical-align: middle;
 
-  /* Relative sizing: scales automatically with the parent statement font */
-  font-size: 0.55em;
+  /* Font size relative to parent statement */
+  font-size: 0.6em;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
 
-  padding: 0.35em 0.9em;
-  margin: 0.15em 0.35rem;
+  padding: 0.3em 0.75em;
+  margin: 0.15em 0.25rem;
 
-  /* Badge shape & glass effects */
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.03);
   box-shadow:
-    inset 0 0 12px rgba(255, 255, 255, 0.03),
-    0 0 16px rgba(255, 255, 255, 0.04);
+    inset 0 0 8px rgba(255, 255, 255, 0.03),
+    0 0 12px rgba(255, 255, 255, 0.04);
 
-  /* Shine effect */
   background-image: linear-gradient(
     to right,
     #8f8f8f 0%,
@@ -106,24 +106,23 @@
 /* ── Tablet & Desktop Breakpoint ── */
 @media (min-width: 768px) {
   .statement {
-    line-height: 1.8;
+    line-height: 1.65;
   }
 
   .break {
-    display: inline; /* Shows line breaks only on wider screens */
+    display: inline;
   }
 }
 
 /* ── Mobile Fine-Tuning ── */
 @media (max-width: 480px) {
   .statement {
-    letter-spacing: -0.02em;
-    line-height: 1.65;
+    letter-spacing: -0.015em;
+    line-height: 1.5;
   }
 
   .badge {
-    /* Slight touch padding boost on small phones */
-    padding: 0.3em 0.75em;
-    margin: 0.2em 0.2rem;
+    padding: 0.25em 0.65em;
+    margin: 0.15em 0.15rem;
   }
 }
