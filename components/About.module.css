@@ -1,11 +1,12 @@
 .section {
   position: relative;
-  padding: 6rem 2rem;
+  /* Fluid padding: 3rem on mobile up to 6rem on desktop */
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: clamp(320px, 50vh, 600px);
   font-family:
     system-ui,
     -apple-system,
@@ -17,14 +18,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vw;
-  max-width: 800px;
-  max-height: 800px;
+  width: clamp(280px, 80vw, 750px);
+  height: clamp(280px, 80vw, 750px);
   background: radial-gradient(
     circle,
-    rgba(138, 172, 255, 0.08) 0%,
-    rgba(0, 0, 0, 0) 60%
+    rgba(138, 172, 255, 0.09) 0%,
+    rgba(0, 0, 0, 0) 65%
   );
   pointer-events: none;
   z-index: 0;
@@ -33,113 +32,98 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  width: 100%;
+  max-width: 740px;
   margin: 0 auto;
   text-align: center;
 }
 
 .statement {
-  font-size: 50px;
-  font-weight: 100;
-  line-height: 2;
-  color: #6d7279;
-  margin: 10px;
+  /* Fluid font: scales smoothly from 22px on phones to 38px on tablets and 46px on desktop */
+  font-size: clamp(22px, 3.8vw, 44px);
+  font-weight: 300;
+  /* Adjusted line-height to maintain tight, clean spacing when inline badges wrap */
+  line-height: 1.6;
+  color: #8b929c;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 16px;
-  margin: 0 0.25rem;
+  justify-content: center;
   vertical-align: middle;
 
-  /* Typography */
+  /* Relative sizing: scales automatically with the parent statement font */
+  font-size: 0.55em;
   font-family: "Poppins", sans-serif;
-  font-size: 20px; /* Inherits from parent text */
-  font-weight: 300;
+  font-weight: 400;
+  line-height: 1;
   white-space: nowrap;
   text-decoration: none;
 
-  /* Badge Shape & Border */
+  padding: 0.35em 0.9em;
+  margin: 0.15em 0.35rem;
+
+  /* Badge shape & glass effects */
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.03);
   box-shadow:
     inset 0 0 12px rgba(255, 255, 255, 0.03),
-    0 0 20px rgba(255, 255, 255, 0.05);
+    0 0 16px rgba(255, 255, 255, 0.04);
 
-  /* Shine Effect (Applied to background, clipped to text) */
-  background-image: linear-gradient(to right, #9f9f9f 0%, #ffffff 10%, #868686 20%);
+  /* Shine effect */
+  background-image: linear-gradient(
+    to right,
+    #8f8f8f 0%,
+    #ffffff 20%,
+    #8f8f8f 40%
+  );
   background-size: 200% auto;
   color: #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  
-  animation: shine 3s infinite linear;
+
+  animation: shine 3.5s linear infinite;
 }
 
-/* Required keyframes for the shine animation */
 @keyframes shine {
-  to {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
     background-position: 200% center;
   }
 }
-@-moz-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@-webkit-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@-o-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
+
 .break {
   display: none;
 }
 
+/* ── Tablet & Desktop Breakpoint ── */
 @media (min-width: 768px) {
   .statement {
-    font-size: 1.75rem;
-    line-height: 2.2;
+    line-height: 1.8;
   }
 
   .break {
-    display: block;
+    display: inline; /* Shows line breaks only on wider screens */
+  }
+}
+
+/* ── Mobile Fine-Tuning ── */
+@media (max-width: 480px) {
+  .statement {
+    letter-spacing: -0.02em;
+    line-height: 1.65;
+  }
+
+  .badge {
+    /* Slight touch padding boost on small phones */
+    padding: 0.3em 0.75em;
+    margin: 0.2em 0.2rem;
   }
 }
