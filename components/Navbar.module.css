@@ -2,52 +2,53 @@
 
 .nav {
   position: fixed;
-  top: 24px; /* Floats away from the top edge */
-  left: 30%;
-  transform: translateX(-50%); /* Centers the capsule */
-  z-index: 100;
+  top: 24px;
   
-  /* Capsule Shape & Constraints */
+  /* Center horizontally without transform */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  
+  z-index: 100;
+
   width: max-content;
   max-width: 95vw;
   border-radius: 999px;
-  
-  /* Glass Effect & Thin Border */
-  background-color: rgba(15, 21, 31, 0.3); /* Translucent dark background */
+
+  background-color: rgba(15, 21, 31, 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Thin, subtle border */
-  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   padding: 12px 24px;
   transition: all 0.3s ease;
 }
-
-/* Optional: Slight color change or shrink when scrolling */
 .nav.scrolled {
-  background-color: rgba(15, 21, 31, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(15, 21, 31, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 10px 20px;
 }
-
 .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px; /* Spacing between logo, links, and button */
+  gap: 48px;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   font-size: var(--text-18, 18px);
-  letter-spacing: var(--tracking-neg-0-36, -0.36px);
-  color: var(--text-primary, #ffffff);
+  letter-spacing: -0.36px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .logoIcon {
-  color: var(--text-primary, #ffffff);
+  color: #ffffff;
 }
 
 .logoText {
@@ -55,6 +56,7 @@
   letter-spacing: 2px;
 }
 
+/* Desktop Links */
 .links {
   display: flex;
   align-items: center;
@@ -65,29 +67,19 @@
 }
 
 .link {
-  font-size: var(--text-14, 14px);
-  color: var(--text-primary, #ffffff);
+  font-size: 14px;
+  color: #ffffff;
   opacity: 0.8;
   transition: opacity 0.2s ease;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .link:hover {
   opacity: 1;
 }
 
-.cta {
-  font-size: var(--text-14, 14px);
-  font-weight: 500;
-  color: var(--text-primary, #ffffff);
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 16px;
-  border-radius: 999px; /* Pill shape */
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
+/* Desktop Actions */
 .actions {
   display: flex;
   align-items: center;
@@ -95,9 +87,9 @@
 }
 
 .lang {
-  font-size: var(--text-14, 14px);
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-primary, #ffffff);
+  color: #ffffff;
   background: transparent;
   border: none;
   padding: 8px 10px;
@@ -113,17 +105,182 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
+.cta {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
 .cta:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Mobile Responsiveness */
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Animate bars to 'X' when active */
+.hamburgerActive .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerActive .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerActive .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 90;
+}
+
+/* Mobile & Tablet Drawer Panel */
+.mobileMenu {
+  position: fixed;
+  top: 84px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  
+  width: calc(100vw - 32px);
+  max-width: 440px;
+  background: rgba(15, 21, 31, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  z-index: 95;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileLink {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.9;
+}
+
+.mobileLink:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mobileDivider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 18px 0;
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileLang {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mobileLang:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobileCta {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f151f;
+  background-color: #ffffff;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.mobileCta:hover {
+  opacity: 0.9;
+}
+
+/* Tablet & Mobile Media Query */
 @media (max-width: 960px) {
-  .inner {
-    gap: 24px;
+  .nav {
+    width: calc(100vw - 32px);
+    max-width: 600px;
+    padding: 10px 18px;
   }
-  .links {
-    display: none; /* Hides standard links on smaller screens to preserve the capsule shape */
+
+  .inner {
+    gap: 16px;
+  }
+
+  .links,
+  .actions {
+    display: none; /* Hidden on tablet and mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Visible on tablet and mobile */
   }
 }
